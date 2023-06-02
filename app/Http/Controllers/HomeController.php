@@ -29,13 +29,12 @@ class HomeController extends Controller
     public function loadLog(Request $request)
     {
         $logAktivitas = ActivityLogService::getAllLogs();
-        $barang = Barang::all();
 
-        $convertLog = collect($logAktivitas)->values()->map(function($res) use ($barang) {
+        $convertLog = collect($logAktivitas)->values()->map(function($res) {
             $res->barang_id   = $res->data->barang_id;
             $res->action      = $res->data->action;
-            $res->nama_barang      = $res->data->nama_barang;
-            $res->timestamp  = Carbon::parse($res->timestamp)->format('d-m-Y H:i:s');
+            $res->nama_barang = $res->data->nama_barang;
+            $res->timestamp   = Carbon::parse($res->timestamp)->format('d-m-Y H:i:s');
             return $res;
         });
 

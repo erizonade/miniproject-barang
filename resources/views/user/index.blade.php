@@ -73,7 +73,7 @@
 
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary"  form="formUser">Save changes</button>
+              <button type="submit" class="btn btn-primary"  form="formUser">Save</button>
             </div>
         </div>
       </div>

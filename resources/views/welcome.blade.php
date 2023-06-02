@@ -408,22 +408,30 @@
 </head>
 
 <body class="antialiased">
-    <div class="relative flex items-top justify-center min-h-screen bg-gray-100 sm:items-center py-4 sm:pt-0">
-        @if (Route::has('login'))
-            <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block bg-dark w-100 ">
-                @auth
-                    <a href="{{ url('/home') }}" class="text-sm text-gray-700 text-white text-decoration-none">Home</a>
-                @else
-                    <a href="{{ route('login') }}" class="text-sm text-gray-700 text-white text-decoration-none">Log in</a>
-
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}"
-                            class="ml-4 text-sm text-gray-700 text-white text-decoration-none">Register</a>
-                    @endif
-                @endauth
-            </div>
-        @endif
-
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">EAP</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+            @if (Route::has('login'))
+             @auth
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{ url('/home') }}">Home</a>
+                </li>
+              @else
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('login') }}">Login</a>
+              </li>
+              @endauth
+            @endif
+            </ul>
+          </div>
+        </div>
+      </nav>
+    <div class="container" style="margin-top: 5em">
         <div class="row">
             @forelse ($barang as $item)
                 <div class="col">
@@ -440,7 +448,10 @@
                     </div>
                 </div>
             @endforeach
-
+        </div>
+        <div class="col-12 mt-5">
+            <a href="https://erizonade.github.io/my-portfolio" class="text-decoration-none my-5">Portfolio / CV Erizon Ade Pratama</a>
+            <iframe src="https://erizonade.github.io/my-portfolio/" class="w-100" height="600"></iframe>
         </div>
     </div>
 
